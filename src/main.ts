@@ -1,6 +1,6 @@
 import {countIncreases, countIncreasesUsingWindows} from "./day1/day1";
 import {getPosition, getPositionUsingAim, processCommands} from "./day2/day2";
-import {calculateConsumption} from "./day3/day3";
+import {calculateConsumption, calculateLifeConsumption} from "./day3/day3";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -22,3 +22,5 @@ console.log(`Day 2, part 2: ${position.horizontal * position.depth}`);
 let consumption;
 consumption = calculateConsumption(testDiagnostics);
 console.log(`Day 3, part 1: ${parseInt(consumption.gamma, 2) * parseInt(consumption.epsilon, 2)}`);
+consumption = calculateLifeConsumption(testDiagnostics);
+console.log(`Day 3, part 2: ${parseInt(consumption.gamma, 2) * parseInt(consumption.epsilon, 2)}`);

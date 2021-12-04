@@ -17,3 +17,34 @@ export function calculateConsumption(diagnostics: string[]): Consumption {
 
   return {gamma, epsilon}
 }
+
+export function calculateLifeConsumption(diagnostics: string[]): Consumption {
+  let gammaDiagnostics = diagnostics;
+  let epsilonDiagnostics = diagnostics;
+
+  for (let i = 0; i < diagnostics[0].length; i++) {
+    if (gammaDiagnostics.length !== 1) {
+      let gammaFrequency = getFrequency(gammaDiagnostics, i);
+      gammaDiagnostics = gammaDiagnostics.filter(diagnostic => {
+        return (diagnostic[i] === '1' && gammaFrequency >= 0) || (diagnostic[i] === '0' && gammaFrequency < 0)
+      });
+    }
+
+    if (epsilonDiagnostics.length !== 1) {
+      let epsilonFrequency = getFrequency(epsilonDiagnostics, i);
+      epsilonDiagnostics = epsilonDiagnostics.filter(diagnostic => {
+        return (diagnostic[i] === '1' && epsilonFrequency < 0) || (diagnostic[i] === '0' && epsilonFrequency >= 0)
+      });
+    }
+  }
+
+  return {gamma: gammaDiagnostics[0], epsilon: epsilonDiagnostics[0]}
+}
+
+function getFrequency(diagnostics: string[], frequencyIndex: number): number {
+  let frequency = 0;
+  diagnostics.forEach(diagnostic => {
+    diagnostic[frequencyIndex] === '1' ? frequency++ : frequency--;
+  });
+  return frequency;
+}
