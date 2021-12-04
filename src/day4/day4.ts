@@ -7,10 +7,11 @@ export type Board = {
   fields: number[][];
 }
 
-export function calculateWinnerBoardScore(input: BingoInput): number {
+export function calculateBoardScore(input: BingoInput, calculateLoserScore: boolean = false): number {
   const {selectedNumbers, boards} = input;
   const boardSize = boards[0].fields.length;
 
+  let winnerBoardIndexes = new Set<Number>();
   let checkedNumbers: number[] = [];
   for (let selectedNumberIndex = 0; selectedNumberIndex < selectedNumbers.length; selectedNumberIndex++) {
     checkedNumbers.push(selectedNumbers[selectedNumberIndex]);
@@ -36,15 +37,18 @@ export function calculateWinnerBoardScore(input: BingoInput): number {
         }
 
         if (win) {
-          let boardSum = 0;
-          for (let i = 0; i < boardSize; i++) {
-            for (let j = 0; j < boardSize; j++) {
-              if (!checkedNumbers.includes(board.fields[i][j])) {
-                boardSum += board.fields[i][j];
+          winnerBoardIndexes.add(boardIndex);
+          if (!calculateLoserScore || (calculateLoserScore && winnerBoardIndexes.size === boards.length)) {
+            let boardSum = 0;
+            for (let i = 0; i < boardSize; i++) {
+              for (let j = 0; j < boardSize; j++) {
+                if (!checkedNumbers.includes(board.fields[i][j])) {
+                  boardSum += board.fields[i][j];
+                }
               }
             }
+            return boardSum * selectedNumbers[selectedNumberIndex];
           }
-          return boardSum * selectedNumbers[selectedNumberIndex];
         }
       }
     }
