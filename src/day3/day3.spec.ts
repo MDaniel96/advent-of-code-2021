@@ -50,7 +50,7 @@ describe('Day 3 tests', () => {
       expect(consumption).to.be.eql(expectedConsumption);
     });
 
-    it('should return 10110 as gamma rate and 01001 as epsilon rate for test diagnostics', () => {
+    it('should return 10111 as gamma rate and 01010 as epsilon rate for test diagnostics', () => {
       const expectedConsumption = {gamma: '10111', epsilon: '01010'};
 
       const consumption = calculateLifeConsumption(testDiagnostics);
