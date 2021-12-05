@@ -2,11 +2,13 @@ import {countIncreases, countIncreasesUsingWindows} from "./day1/day1";
 import {getPosition, getPositionUsingAim, processCommands} from "./day2/day2";
 import {calculateConsumption, calculateLifeConsumption} from "./day3/day3";
 import {calculateBoardScore, processRawBingoInput} from "./day4/day4";
+import {calculateOverlaps} from "./day5/day5";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
 const testDiagnostics = require('../resources/day3-diagnostics.json');
 const testBingoBoards = require('../resources/day4-bingo-boards.json');
+const testPoints = require('../resources/day5-points.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -33,3 +35,7 @@ boardScore = calculateBoardScore(bingoInput);
 console.log(`Day 4, part 1: ${boardScore}`);
 boardScore = calculateBoardScore(bingoInput, true);
 console.log(`Day 4, part 2: ${boardScore}`);
+
+let overlaps;
+overlaps = calculateOverlaps(testPoints);
+console.log(`Day 5, part 1: ${overlaps}`);
