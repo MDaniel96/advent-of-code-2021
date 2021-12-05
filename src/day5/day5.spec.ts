@@ -1,7 +1,7 @@
 import {calculateOverlaps, parseLine} from "./day5";
 import {expect} from "chai";
 
-describe.only('Day 5 tests', () => {
+describe('Day 5 tests', () => {
   const testPoints = [
     '0,9->5,9',
     '8,0->0,8',
@@ -27,5 +27,11 @@ describe.only('Day 5 tests', () => {
     const overlaps = calculateOverlaps(testPoints);
 
     expect(overlaps).to.be.equal(5);
+  });
+
+  it('should calculate 12 overlapping points for test points if diagonals are also detected', () => {
+    const overlaps = calculateOverlaps(testPoints, true);
+
+    expect(overlaps).to.be.equal(12);
   });
 });

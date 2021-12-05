@@ -3,8 +3,7 @@ export type Point = {
   y: number;
 }
 
-
-export function calculateOverlaps(lines: string[]): number {
+export function calculateOverlaps(lines: string[], detectDiagonals: boolean = false): number {
   let pointCount = new Map<string, number>();
   lines.forEach(line => {
     const points = parseLine(line);
@@ -20,11 +19,20 @@ export function calculateOverlaps(lines: string[]): number {
       for (let x = pointFrom.x; x <= pointTo.x; x++) {
         countOverlappingPoints(x, pointFrom.y, pointCount);
       }
+    } else if (detectDiagonals) {
+      const fromX = points[0].x < points[1].x ? points[0] : points[1];
+      const toX = points[0].x > points[1].x ? points[0] : points[1];
+      let yIncrement = fromX.y < toX.y ? 1 : -1;
+      let fromY = fromX.y;
+      for (let x = fromX.x; x <= toX.x; x++) {
+        countOverlappingPoints(x, fromY, pointCount);
+        fromY += yIncrement;
+      }
     }
   });
 
   let overlaps = 0;
-  pointCount.forEach(value => {
+  pointCount.forEach((value) => {
     if (value > 1) overlaps++;
   });
 

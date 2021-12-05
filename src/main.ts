@@ -39,3 +39,5 @@ console.log(`Day 4, part 2: ${boardScore}`);
 let overlaps;
 overlaps = calculateOverlaps(testPoints);
 console.log(`Day 5, part 1: ${overlaps}`);
+overlaps = calculateOverlaps(testPoints, true);
+console.log(`Day 5, part 2: ${overlaps}`);
