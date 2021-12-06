@@ -3,7 +3,7 @@ import {getPosition, getPositionUsingAim, processCommands} from "./day2/day2";
 import {calculateConsumption, calculateLifeConsumption} from "./day3/day3";
 import {calculateBoardScore, processRawBingoInput} from "./day4/day4";
 import {calculateOverlaps} from "./day5/day5";
-import {calculateFishNumberAfter80Days} from "./day6/day6";
+import {calculateFishNumberAfter80Days, calculateFishNumberAfterPeriod} from "./day6/day6";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -47,3 +47,5 @@ console.log(`Day 5, part 2: ${overlaps}`);
 let fishNumber;
 fishNumber = calculateFishNumberAfter80Days(testFish);
 console.log(`Day 6, part 1: ${fishNumber}`);
+fishNumber = calculateFishNumberAfterPeriod(testFish, 256);
+console.log(`Day 6, part 2: ${fishNumber}`);
