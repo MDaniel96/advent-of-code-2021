@@ -3,12 +3,14 @@ import {getPosition, getPositionUsingAim, processCommands} from "./day2/day2";
 import {calculateConsumption, calculateLifeConsumption} from "./day3/day3";
 import {calculateBoardScore, processRawBingoInput} from "./day4/day4";
 import {calculateOverlaps} from "./day5/day5";
+import {calculateFishNumberAfter80Days} from "./day6/day6";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
 const testDiagnostics = require('../resources/day3-diagnostics.json');
 const testBingoBoards = require('../resources/day4-bingo-boards.json');
 const testPoints = require('../resources/day5-points.json');
+const testFish = require('../resources/day6-fish.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -41,3 +43,7 @@ overlaps = calculateOverlaps(testPoints);
 console.log(`Day 5, part 1: ${overlaps}`);
 overlaps = calculateOverlaps(testPoints, true);
 console.log(`Day 5, part 2: ${overlaps}`);
+
+let fishNumber;
+fishNumber = calculateFishNumberAfter80Days(testFish);
+console.log(`Day 6, part 1: ${fishNumber}`);
