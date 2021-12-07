@@ -4,7 +4,7 @@ import {calculateConsumption, calculateLifeConsumption} from "./day3/day3";
 import {calculateBoardScore, processRawBingoInput} from "./day4/day4";
 import {calculateOverlaps} from "./day5/day5";
 import {calculateFishNumberAfter80Days, calculateFishNumberAfterPeriod} from "./day6/day6";
-import {calculateLeastFuel} from "./day7/day7";
+import {calculateLeastFuel, calculateLeastFuelUsingConsumption} from "./day7/day7";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -55,3 +55,5 @@ console.log(`Day 6, part 2: ${fishNumber}`);
 let fuel;
 fuel = calculateLeastFuel(testPositions);
 console.log(`Day 7, part 1: ${fuel}`);
+fuel = calculateLeastFuelUsingConsumption(testPositions);
+console.log(`Day 7, part 2: ${fuel}`);
