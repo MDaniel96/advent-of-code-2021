@@ -5,6 +5,7 @@ import {calculateBoardScore, processRawBingoInput} from "./day4/day4";
 import {calculateOverlaps} from "./day5/day5";
 import {calculateFishNumberAfter80Days, calculateFishNumberAfterPeriod} from "./day6/day6";
 import {calculateLeastFuel, calculateLeastFuelUsingConsumption} from "./day7/day7";
+import {countUniqueSegments} from "./day8/day8";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -13,6 +14,7 @@ const testBingoBoards = require('../resources/day4-bingo-boards.json');
 const testPoints = require('../resources/day5-points.json');
 const testFish = require('../resources/day6-fish.json');
 const testPositions = require('../resources/day7-positions.json');
+const testSegments = require('../resources/day8-segments.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -57,3 +59,7 @@ fuel = calculateLeastFuel(testPositions);
 console.log(`Day 7, part 1: ${fuel}`);
 fuel = calculateLeastFuelUsingConsumption(testPositions);
 console.log(`Day 7, part 2: ${fuel}`);
+
+let uniqueSegments;
+uniqueSegments = countUniqueSegments(testSegments);
+console.log(`Day 8, part 1: ${uniqueSegments}`);
