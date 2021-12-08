@@ -1,7 +1,7 @@
-import {countUniqueSegments} from "./day8";
+import {calculateOutputSum, countUniqueSegments} from "./day8";
 import {expect} from "chai";
 
-describe('Day 8 tests', () => {
+describe.only('Day 8 tests', () => {
   const testSegments = [
     "be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb|fdgacbe cefdb cefbgd gcbe",
     "edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec|fcgedb cgb dgebacf gc",
@@ -19,5 +19,19 @@ describe('Day 8 tests', () => {
     const uniqueSegments = countUniqueSegments(testSegments);
 
     expect(uniqueSegments).to.be.equal(26);
+  });
+
+  it('should return 61229 for test segments output sum', () => {
+    const testData = ['acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab|cdfeb fcadb cdfeb cdbaf']
+
+    const outputSum = calculateOutputSum(testData);
+
+    expect(outputSum).to.be.equal(5353);
+  });
+
+  it('should return 61229 for test segments output sum', () => {
+    const outputSum = calculateOutputSum(testSegments);
+
+    expect(outputSum).to.be.equal(61229);
   });
 });
