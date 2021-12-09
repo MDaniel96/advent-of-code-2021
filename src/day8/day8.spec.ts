@@ -1,7 +1,7 @@
 import {calculateOutputSum, countUniqueSegments} from "./day8";
 import {expect} from "chai";
 
-describe.only('Day 8 tests', () => {
+describe('Day 8 tests', () => {
   const testSegments = [
     "be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb|fdgacbe cefdb cefbgd gcbe",
     "edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec|fcgedb cgb dgebacf gc",

@@ -6,6 +6,7 @@ import {calculateOverlaps} from "./day5/day5";
 import {calculateFishNumberAfter80Days, calculateFishNumberAfterPeriod} from "./day6/day6";
 import {calculateLeastFuel, calculateLeastFuelUsingConsumption} from "./day7/day7";
 import {calculateOutputSum, countUniqueSegments} from "./day8/day8";
+import {calculateHeightsSum, calculateLargestBasinSum} from "./day9/day9";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -15,6 +16,7 @@ const testPoints = require('../resources/day5-points.json');
 const testFish = require('../resources/day6-fish.json');
 const testPositions = require('../resources/day7-positions.json');
 const testSegments = require('../resources/day8-segments.json');
+const testHeights = require('../resources/day9-heights.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -65,3 +67,9 @@ uniqueSegments = countUniqueSegments(testSegments);
 console.log(`Day 8, part 1: ${uniqueSegments}`);
 uniqueSegments = calculateOutputSum(testSegments);
 console.log(`Day 8, part 2: ${uniqueSegments}`);
+
+let heightsSum;
+heightsSum = calculateHeightsSum(testHeights);
+console.log(`Day 9, part 1: ${heightsSum}`);
+heightsSum = calculateLargestBasinSum(testHeights);
+console.log(`Day 9, part 2: ${heightsSum}`);
