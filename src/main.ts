@@ -7,6 +7,7 @@ import {calculateFishNumberAfter80Days, calculateFishNumberAfterPeriod} from "./
 import {calculateLeastFuel, calculateLeastFuelUsingConsumption} from "./day7/day7";
 import {calculateOutputSum, countUniqueSegments} from "./day8/day8";
 import {calculateHeightsSum, calculateLargestBasinSum} from "./day9/day9";
+import {getSyntaxErrorScore} from "./day10/day10";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -17,6 +18,7 @@ const testFish = require('../resources/day6-fish.json');
 const testPositions = require('../resources/day7-positions.json');
 const testSegments = require('../resources/day8-segments.json');
 const testHeights = require('../resources/day9-heights.json');
+const testSyntax = require('../resources/day10-syntax.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -73,3 +75,7 @@ heightsSum = calculateHeightsSum(testHeights);
 console.log(`Day 9, part 1: ${heightsSum}`);
 heightsSum = calculateLargestBasinSum(testHeights);
 console.log(`Day 9, part 2: ${heightsSum}`);
+
+let syntaxScore;
+syntaxScore = getSyntaxErrorScore(testSyntax);
+console.log(`Day 10, part 1: ${syntaxScore}`);
