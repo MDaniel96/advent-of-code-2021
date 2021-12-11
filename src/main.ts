@@ -8,6 +8,7 @@ import {calculateLeastFuel, calculateLeastFuelUsingConsumption} from "./day7/day
 import {calculateOutputSum, countUniqueSegments} from "./day8/day8";
 import {calculateHeightsSum, calculateLargestBasinSum} from "./day9/day9";
 import {getSyntaxCompletionScore, getSyntaxErrorScore} from "./day10/day10";
+import {getFlashes} from "./day11/day11";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -19,6 +20,7 @@ const testPositions = require('../resources/day7-positions.json');
 const testSegments = require('../resources/day8-segments.json');
 const testHeights = require('../resources/day9-heights.json');
 const testSyntax = require('../resources/day10-syntax.json');
+const testEnergies = require('../resources/day11-energies.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -81,3 +83,7 @@ syntaxScore = getSyntaxErrorScore(testSyntax);
 console.log(`Day 10, part 1: ${syntaxScore}`);
 syntaxScore = getSyntaxCompletionScore(testSyntax);
 console.log(`Day 10, part 2: ${syntaxScore}`);
+
+let flashes;
+flashes = getFlashes(testEnergies);
+console.log(`Day 11, part 1: ${flashes}`);
