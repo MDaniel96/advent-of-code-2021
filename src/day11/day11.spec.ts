@@ -1,4 +1,4 @@
-import {getFlashes} from "./day11";
+import {getFirstSynchronizedFlashStep, getFlashes} from "./day11";
 import {expect} from "chai";
 
 describe('Day 11 tests', () => {
@@ -33,5 +33,11 @@ describe('Day 11 tests', () => {
     const flashes = getFlashes(testEnergies);
 
     expect(flashes).to.be.equal(1656);
+  });
+
+  it('should return 195 for first synchronized step', () => {
+    const step = getFirstSynchronizedFlashStep(testEnergies);
+
+    expect(step).to.be.equal(195);
   });
 });

@@ -8,7 +8,7 @@ import {calculateLeastFuel, calculateLeastFuelUsingConsumption} from "./day7/day
 import {calculateOutputSum, countUniqueSegments} from "./day8/day8";
 import {calculateHeightsSum, calculateLargestBasinSum} from "./day9/day9";
 import {getSyntaxCompletionScore, getSyntaxErrorScore} from "./day10/day10";
-import {getFlashes} from "./day11/day11";
+import {getFirstSynchronizedFlashStep, getFlashes} from "./day11/day11";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -87,3 +87,5 @@ console.log(`Day 10, part 2: ${syntaxScore}`);
 let flashes;
 flashes = getFlashes(testEnergies);
 console.log(`Day 11, part 1: ${flashes}`);
+flashes = getFirstSynchronizedFlashStep(testEnergies);
+console.log(`Day 11, part 2: ${flashes}`);

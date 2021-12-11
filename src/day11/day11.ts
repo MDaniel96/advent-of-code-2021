@@ -6,27 +6,38 @@ type Energy = {
 }
 
 export function getFlashes(inputEnergies: string[], steps: number = 100): number {
-  let flashes = 0;
   const energies = convert(inputEnergies);
+  return [...Array(steps).keys()].reduce((flashes, _) => flashes + getStepFlashes(energies), 0);
+}
 
-  for (let step = 0; step < steps; step++) {
-    energies.forEach(row => row.forEach(energy => energy.value++));
-
-    let flashy = findFlashy(energies);
-    while (flashy) {
-      getNeighbourDirections(flashy).forEach(direction => {
-        const neighbour = energies[direction.row] ? energies[direction.row][direction.column] : null;
-        if (neighbour && !neighbour.flashed) neighbour.value++;
-      });
-      flashy.flashed = true;
-      flashy.value = 0;
-      flashes++
-      flashy = findFlashy(energies);
+export function getFirstSynchronizedFlashStep(inputEnergies: string[]): number {
+  const energies = convert(inputEnergies);
+  let step = 0;
+  while (++step) {
+    if (getStepFlashes(energies) === energies.length * energies[1].length) {
+      return step;
     }
+  }
+  return 0;
+}
 
-    energies.forEach(row => row.forEach(energy => energy.flashed = false));
+function getStepFlashes(energies: Energy[][]): number {
+  let flashes = 0;
+  energies.forEach(row => row.forEach(energy => energy.value++));
+
+  let flashy = findFlashy(energies);
+  while (flashy) {
+    getNeighbourDirections(flashy).forEach(direction => {
+      const neighbour = energies[direction.row] ? energies[direction.row][direction.column] : null;
+      if (neighbour && !neighbour.flashed) neighbour.value++;
+    });
+    flashy.flashed = true;
+    flashy.value = 0;
+    flashes++
+    flashy = findFlashy(energies);
   }
 
+  energies.forEach(row => row.forEach(energy => energy.flashed = false));
   return flashes;
 }
 
