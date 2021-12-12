@@ -9,6 +9,7 @@ import {calculateOutputSum, countUniqueSegments} from "./day8/day8";
 import {calculateHeightsSum, calculateLargestBasinSum} from "./day9/day9";
 import {getSyntaxCompletionScore, getSyntaxErrorScore} from "./day10/day10";
 import {getFirstSynchronizedFlashStep, getFlashes} from "./day11/day11";
+import {getPaths} from "./day12/day12";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -21,6 +22,7 @@ const testSegments = require('../resources/day8-segments.json');
 const testHeights = require('../resources/day9-heights.json');
 const testSyntax = require('../resources/day10-syntax.json');
 const testEnergies = require('../resources/day11-energies.json');
+const testCaves = require('../resources/day12-caves.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -89,3 +91,7 @@ flashes = getFlashes(testEnergies);
 console.log(`Day 11, part 1: ${flashes}`);
 flashes = getFirstSynchronizedFlashStep(testEnergies);
 console.log(`Day 11, part 2: ${flashes}`);
+
+let paths;
+paths = getPaths(testCaves);
+console.log(`Day 12, part 1: ${paths}`);
