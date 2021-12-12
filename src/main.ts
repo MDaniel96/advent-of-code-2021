@@ -95,3 +95,5 @@ console.log(`Day 11, part 2: ${flashes}`);
 let paths;
 paths = getPaths(testCaves);
 console.log(`Day 12, part 1: ${paths}`);
+paths = getPaths(testCaves, true);
+console.log(`Day 12, part 2: ${paths}`);

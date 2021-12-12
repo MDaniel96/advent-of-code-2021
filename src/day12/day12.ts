@@ -2,25 +2,29 @@ type Node = {
   value: string;
   nodes: Node[];
   small: boolean;
-  visited: boolean;
+  visitCount: number;
 }
 
-export function getPaths(caveConnections: string[]): number {
+export function getPaths(caveConnections: string[], moreVisits: boolean = false): number {
   const {startNode, endNode} = buildGraph(caveConnections);
   let paths = [startNode];
-  return countPaths(startNode, endNode, paths);
+  return countPaths(startNode, endNode, paths, moreVisits, false);
 }
 
-function countPaths(currentNode: Node, endNode: Node, path: Node[]): number {
+function countPaths(currentNode: Node, endNode: Node, path: Node[], moreVisits: boolean, doubleVisit: boolean): number {
   if (currentNode.value === endNode.value) {
     return 1;
   }
 
-  currentNode.visited = true;
+  currentNode.visitCount++;
+  doubleVisit = !!path.find(node => node.small && node.visitCount >= 2);
+
   const paths = currentNode.nodes
-    .filter(node => !(node.small && node.visited))
-    .reduce((pathCount, node) => pathCount + countPaths(node, endNode, [...path, node]), 0);
-  currentNode.visited = false;
+    .filter(node => !moreVisits && !(node.small && node.visitCount > 0) ||
+      moreVisits && ((!doubleVisit || !(node.small && node.visitCount > 0)) && node.value !== 'start'))
+    .reduce((pathCount, node) =>
+      pathCount + countPaths(node, endNode, [...path, node], moreVisits, doubleVisit), 0);
+  currentNode.visitCount--;
 
   return paths;
 }
@@ -49,7 +53,7 @@ function getNode(nodeValue: string, nodeMap: Map<string, Node>) {
       value: nodeValue,
       nodes: [],
       small: nodeValue[0] === nodeValue[0].toLowerCase(),
-      visited: false
+      visitCount: 0
     };
     nodeMap.set(nodeValue, node);
   }
