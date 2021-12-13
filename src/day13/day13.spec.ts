@@ -34,6 +34,12 @@ describe('Day 13 tests', () => {
     expect(dots).to.be.equal(17);
   });
 
+  it('should return 16 dots after all of the folds', () => {
+    const dots = getDots(testDots, testInstructions);
+
+    expect(dots).to.be.equal(16);
+  });
+
   it('should fold dot to the correct position along y axis', () => {
     const foldedDot = fold({x: 6, y: 8}, {axis: 'y', value: 6});
 

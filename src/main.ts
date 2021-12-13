@@ -104,3 +104,5 @@ console.log(`Day 12, part 2: ${paths}`);
 let dots;
 dots = getDots(testDots, testInstructions, true);
 console.log(`Day 13, part 1: ${dots}`);
+dots = getDots(testDots, testInstructions);
+console.log(`Day 13, part 2: ${dots}`);
