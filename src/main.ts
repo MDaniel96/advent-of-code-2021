@@ -11,6 +11,7 @@ import {getSyntaxCompletionScore, getSyntaxErrorScore} from "./day10/day10";
 import {getFirstSynchronizedFlashStep, getFlashes} from "./day11/day11";
 import {getPaths} from "./day12/day12";
 import {getDots} from "./day13/day13";
+import {calculateQuantityDifference} from "./day14/day14";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -26,6 +27,7 @@ const testEnergies = require('../resources/day11-energies.json');
 const testCaves = require('../resources/day12-caves.json');
 const testDots = require('../resources/day13-dots.json');
 const testInstructions = require('../resources/day13-instructions.json');
+const testInsertions = require('../resources/day14-insertions.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -106,3 +108,7 @@ dots = getDots(testDots, testInstructions, true);
 console.log(`Day 13, part 1: ${dots}`);
 dots = getDots(testDots, testInstructions);
 console.log(`Day 13, part 2: ${dots}`);
+
+let difference;
+difference = calculateQuantityDifference('VNVVKSNNFPBBBVSCVBBC', testInsertions, 10);
+console.log(`Day 14, part 1: ${difference}`);
