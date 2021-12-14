@@ -112,3 +112,5 @@ console.log(`Day 13, part 2: ${dots}`);
 let difference;
 difference = calculateQuantityDifference('VNVVKSNNFPBBBVSCVBBC', testInsertions, 10);
 console.log(`Day 14, part 1: ${difference}`);
+difference = calculateQuantityDifference('VNVVKSNNFPBBBVSCVBBC', testInsertions, 40);
+console.log(`Day 14, part 2: ${difference}`);

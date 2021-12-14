@@ -1,7 +1,7 @@
 import {calculateQuantityDifference} from "./day14";
 import {expect} from "chai";
 
-describe.only('Day 14 tests', () => {
+describe('Day 14 tests', () => {
   const testTemplate = 'NNCB';
 
   const testRules = [
@@ -60,5 +60,11 @@ describe.only('Day 14 tests', () => {
     const difference = calculateQuantityDifference(testTemplate, testRules, 10);
 
     expect(difference).to.be.equal(1588);
+  });
+
+  it('should return 2188189693529 difference after 40 insertions', () => {
+    const difference = calculateQuantityDifference(testTemplate, testRules, 40);
+
+    expect(difference).to.be.equal(2188189693529);
   });
 });
