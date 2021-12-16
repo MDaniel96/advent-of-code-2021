@@ -12,6 +12,7 @@ import {getFirstSynchronizedFlashStep, getFlashes} from "./day11/day11";
 import {getPaths} from "./day12/day12";
 import {getDots} from "./day13/day13";
 import {calculateQuantityDifference} from "./day14/day14";
+import {calculateLowestRisk} from "./day15/day15";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -28,6 +29,7 @@ const testCaves = require('../resources/day12-caves.json');
 const testDots = require('../resources/day13-dots.json');
 const testInstructions = require('../resources/day13-instructions.json');
 const testInsertions = require('../resources/day14-insertions.json');
+const testCavern = require('../resources/day15-cavern.json');
 
 let increases;
 increases = countIncreases(testMeasurements);
@@ -114,3 +116,9 @@ difference = calculateQuantityDifference('VNVVKSNNFPBBBVSCVBBC', testInsertions,
 console.log(`Day 14, part 1: ${difference}`);
 difference = calculateQuantityDifference('VNVVKSNNFPBBBVSCVBBC', testInsertions, 40);
 console.log(`Day 14, part 2: ${difference}`);
+
+let cost;
+cost = calculateLowestRisk(testCavern);
+console.log(`Day 15, part 1: ${cost}`);
+cost = calculateLowestRisk(testCavern, true);
+console.log(`Day 15, part 2: ${cost}`);
