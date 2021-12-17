@@ -13,7 +13,7 @@ import {getPaths} from "./day12/day12";
 import {getDots} from "./day13/day13";
 import {calculateQuantityDifference} from "./day14/day14";
 import {calculateLowestRisk} from "./day15/day15";
-import {Destination, findHighestValue} from "./day17/day17";
+import {findHighestValue, findPossibleVelocities} from "./day17/day17";
 
 const testMeasurements = require('../resources/day1-measurements.json');
 const testCommands = require('../resources/day2-commands.json');
@@ -124,7 +124,8 @@ console.log(`Day 15, part 1: ${cost}`);
 cost = calculateLowestRisk(testCavern, true);
 console.log(`Day 15, part 2: ${cost}`);
 
-let highest;
 const destination = {minX: 119, maxX: 176, minY: -141, maxY: -84}
-highest = findHighestValue(destination);
+const highest = findHighestValue(destination);
 console.log(`Day 17, part 1: ${highest}`);
+const velocities = findPossibleVelocities(destination);
+console.log(`Day 17, part 2: ${velocities}`);

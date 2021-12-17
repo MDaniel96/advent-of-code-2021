@@ -1,4 +1,4 @@
-import {Destination, findHighestValue} from "./day17";
+import {Destination, findHighestValue, findPossibleVelocities} from "./day17";
 import {expect} from "chai";
 
 describe.only('Day 15 tests', () => {
@@ -8,5 +8,11 @@ describe.only('Day 15 tests', () => {
     const highestValue = findHighestValue(testDestination);
 
     expect(highestValue).to.be.equal(45);
+  });
+
+  it('should find number of possible values', () => {
+    const highestValue = findPossibleVelocities(testDestination);
+
+    expect(highestValue).to.be.equal(112);
   });
 });
